@@ -1,0 +1,8 @@
+button {
+  border-radius: 5%;
+}
+
+button:hover {
+  font-size: 125%;
+  color: #333333;
+}
