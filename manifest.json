@@ -3,14 +3,13 @@
     "description": "Network Finder",
     "version": "0.1",
     "manifest_version": 3,
-    "options_page": "options.html",
 
     "background": {
-        "service_worker": "background.js"   
+        "service_worker": "ipdata.js"   
     },
     "permissions": ["storage", "activeTab", "scripting"],
     "action": {
-        "default_popup": "",
+        "default_popup": "popup.html",
         "default_icon": {
         }
     },
