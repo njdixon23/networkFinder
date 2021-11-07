@@ -1,3 +1,7 @@
+body {
+  width: 400px;
+}
+
 button {
   border-radius: 5%;
 }
@@ -5,4 +9,47 @@ button {
 button:hover {
   font-size: 125%;
   color: #333333;
+}
+
+#speed {
+  text-align: center;
+}
+
+#speeder {
+  display: flex;
+  flex-direction: row;
+}
+
+#speedy {
+  margin-top: 0px;
+  padding-top: 5px;
+  margin-left: 5px;
+  border-radius: 5px;
+  background-color: #333333;
+  color: white;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 0px;
+  text-align: center;
+  font-size: 10px;
+  margin-bottom: 15px;
+}
+
+#speeder #speed_help {
+  visibility: hidden;
+  color: #333333;
+  text-align: center;
+  border-radius: 6px;
+  /* Position the tooltip */
+  position: inherit;
+}
+
+#speeder:hover #speed_help {
+  visibility: visible;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
 }
