@@ -1,9 +1,12 @@
+let networkFetch = document.getElementById("networkFetch");
+
 networkFetch.addEventListener("click", async () => {
   let [tab] = await chrome.tabs.query ({ active: true, currentWindow: true})
+  let url = tab.url
 
   chrome.scripting.executeScript({
     target: {tabId: tab.id},
-    function: json(url),
+    function: json(url),  //take out
   });
 });
 
