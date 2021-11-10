@@ -1,5 +1,5 @@
 body {
-  width: 400px;
+  width: 200px;
 }
 
 button {
@@ -33,6 +33,7 @@ button:hover {
   text-align: center;
   font-size: 10px;
   margin-bottom: 15px;
+  width: 0px;
 }
 
 #speeder #speed_help {
@@ -42,10 +43,12 @@ button:hover {
   border-radius: 6px;
   /* Position the tooltip */
   position: inherit;
+  width: 80%;
 }
 
 #speeder:hover #speed_help {
   visibility: visible;
+  width: 100%;
 }
 
 .buttons {
