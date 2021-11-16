@@ -1,7 +1,6 @@
 document.getElementById("speedy").addEventListener("mouseover", changeDef);
 document.getElementById("speedy").addEventListener("mouseleave", removeText);
-// document.getElementById("speedy").addEventListener("mouseover", addElement);
-// document.body.onload = addElement;
+document.getElementById("speed").addEventListener("mousedown", speedTest);
 function changeDef() {
 
   let ele = document.getElementById('speed_help');
@@ -14,18 +13,22 @@ function removeText() {
   document.getElementById('speed_help').textContent = null;
 }
 
+function speedTest(){
+   console.log("Button Pressed...testing speed")
 
-// function addElement() {
-//   // create a new div element
-//   const newDiv = document.createElement("div");
+  printInfo();
+}
 
-//   // and give it some content
-//   const newContent = document.createTextNode("For finding speed");
+function json(url) {
+  return fetch(url).then(res => res.json());
+}
 
-//   // add the text node to the newly created div
-//   newDiv.appendChild(newContent);
+function printInfo() {
+  let apiKey = 'fb729aa07afc67f75787ec919286da17448183a2fbc17c8aed692f03';
+  json(`https://api.ipdata.co?api-key=${apiKey}`).then(data => {
+  console.log(data.ip);
+  console.log(data.city);
+  console.log(data.country_code);
+});
+}
 
-//   // add the newly created element and its content into the DOM
-//   const currentDiv = document.getElementById("speedy");
-//   document.body.insertBefore(newDiv, currentDiv);
-// }

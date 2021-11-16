@@ -1,4 +1,4 @@
-let networkFetch = document.getElementById("networkFetch");
+let networkFetch = document.getElementById("speed");
 
 networkFetch.addEventListener("click", async () => {
   let [tab] = await chrome.tabs.query ({ active: true, currentWindow: true })
@@ -7,6 +7,7 @@ networkFetch.addEventListener("click", async () => {
     target: { tabId: tab.id },
     function: json(url),
   });
+  console.log("Button Pressed...testing speed")
 });
 
 function json(url) {
