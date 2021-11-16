@@ -1,6 +1,11 @@
 document.getElementById("speedy").addEventListener("mouseover", changeDef);
 document.getElementById("speedy").addEventListener("mouseleave", removeText);
-document.getElementById("speed").addEventListener("mousedown", speedTest);
+
+document.getElementById("speed").addEventListener("mouseup", speed);
+let apiKey = 'fb729aa07afc67f75787ec919286da17448183a2fbc17c8aed692f03';
+// document.getElementById("speedy").addEventListener("mouseover", addElement);
+// document.body.onload = addElement;
+
 function changeDef() {
 
   let ele = document.getElementById('speed_help');
@@ -12,9 +17,16 @@ function changeDef() {
 function removeText() {
   document.getElementById('speed_help').textContent = null;
 }
+function speed() {
+  json(`https://api.ipdata.co?api-key=${apiKey}`).then(data => {
+    console.log(data.ip);
+    console.log(data.city);
+    console.log(data.country_code);
+  });
+}
 
-function speedTest(){
-   console.log("Button Pressed...testing speed")
+function speedTest() {
+  console.log("Button Pressed...testing speed")
 
   printInfo();
 }
@@ -26,9 +38,9 @@ function json(url) {
 function printInfo() {
   let apiKey = 'fb729aa07afc67f75787ec919286da17448183a2fbc17c8aed692f03';
   json(`https://api.ipdata.co?api-key=${apiKey}`).then(data => {
-  console.log(data.ip);
-  console.log(data.city);
-  console.log(data.country_code);
-});
+    console.log(data.ip);
+    console.log(data.city);
+    console.log(data.country_code);
+  });
 }
 

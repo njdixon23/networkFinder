@@ -34,6 +34,11 @@ button:hover {
   font-size: 10px;
   margin-bottom: 15px;
   width: 0px;
+  transition: .25s;
+}
+
+#speedy:hover {
+  background-color: #768ade;
 }
 
 #speeder #speed_help {
@@ -49,6 +54,7 @@ button:hover {
 #speeder:hover #speed_help {
   visibility: visible;
   width: 100%;
+  color: #768ade;
 }
 
 .buttons {
