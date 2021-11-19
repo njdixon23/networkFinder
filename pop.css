@@ -1,6 +1,7 @@
 body {
   width: 500px;
   background-color: #D0E1E4;
+  text-shadow: #333333;
 }
 
 button {
@@ -44,12 +45,12 @@ button:hover {
 }
 
 #speedy:hover {
-  background-color: #768ade;
+  background-color: #9FC2C8;
 }
 
 #speeder #speed_help {
   visibility: hidden;
-  color: #333333;
+  color: #9FC2C8;
   text-align: center;
   border-radius: 6px;
   /* Position the tooltip */
@@ -60,7 +61,7 @@ button:hover {
 #speeder:hover #speed_help {
   visibility: visible;
   width: 100%;
-  color: #768ade;
+  color: #333333;
 }
 
 .buttons {
