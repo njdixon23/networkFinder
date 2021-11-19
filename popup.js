@@ -1,16 +1,11 @@
 document.getElementById("speedy").addEventListener("mouseover", changeDef);
 document.getElementById("speedy").addEventListener("mouseleave", removeText);
 
-document.getElementById("speed").addEventListener("mouseup", speed);
+document.getElementById("speed").addEventListener("mouseup", speedTest);
 let apiKey = 'fb729aa07afc67f75787ec919286da17448183a2fbc17c8aed692f03';
 // document.getElementById("speedy").addEventListener("mouseover", addElement);
 // document.body.onload = addElement;
 
-function changeDef() {
-
-let ipInfo;
-let cityInfo;
-let countryInfo;
 
 function changeDef() {
   let ele = document.getElementById('speed_help');
