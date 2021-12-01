@@ -23,6 +23,7 @@ function changeDef() {
   ele.appendChild(node);
 }
 
+
 function addIP() {
   printInfo();
   // create a new div element
@@ -46,6 +47,7 @@ function removeText() {
 function removeIPText() {
   document.getElementById('speed_help').textContent = null;
 }
+
 function speed() {
   json(`https://api.ipdata.co?api-key=${apiKey}`).then(data => {
     console.log(data.ip);
@@ -61,6 +63,7 @@ async function speedTest() {
   console.log("Button Pressed...testing speed")
   document.getElementById('ipP').style.color = "teal";
 
+
   document.getElementById('ipP').textContent = "IP:";
   let speedEle = document.getElementById('ipP');
   console.log("Element found")
@@ -72,6 +75,21 @@ async function speedTest() {
   document.getElementById('ipP').style.color = "black";
   console.log("changed color");
 
+
+
+  printInfo();
+  let netIP = document.getElementById('ipP');
+  let locationData = document.getElementById('cityP')
+
+  console.log("Element found")
+  let ipNode = document.createTextNode(ipInfo);
+  let locationNode = document.createTextNode(locationInfo)
+  netIP.appendChild(ipNode);
+  locationData.appendChild(locationNode)
+  
+  console.log("Info printed");
+
+  
 
 }
 
@@ -85,9 +103,7 @@ function printInfo() {
     console.log(data.ip);
     ipInfo = data.ip;
     console.log(data.city);
-    cityInfo = data.city;
-    console.log(data.country_code);
-    countryInfo = data.country_code;
+    locationInfo = data.city, ", (", data.country_code, ")";
   });
 }
 
