@@ -14,14 +14,6 @@ function changeDef() {
   ele.appendChild(node);
 }
 
-
-
-function removeText() {
-  document.getElementById('speed_help').textContent = null;
-}
-function removeIPText() {
-  document.getElementById('speed_help').textContent = null;
-}
 function speed() {
   json(`https://api.ipdata.co?api-key=${apiKey}`).then(data => {
     console.log(data.ip);
@@ -34,11 +26,18 @@ function speedTest() {
   console.log("Button Pressed...testing speed")
 
   printInfo();
-  let speedEle = document.getElementById('ipP');
+  let netIP = document.getElementById('ipP');
+  let locationData = document.getElementById('cityP')
+
   console.log("Element found")
-  let speedNode = document.createTextNode(ipInfo);
-  speedEle.appendChild(speedNode);
+  let ipNode = document.createTextNode(ipInfo);
+  let locationNode = document.createTextNode(locationInfo)
+  netIP.appendChild(ipNode);
+  locationData.appendChild(locationNode)
+  
   console.log("Info printed");
+
+  
 }
 
 function json(url) {
@@ -51,9 +50,7 @@ function printInfo() {
     console.log(data.ip);
     ipInfo = data.ip;
     console.log(data.city);
-    cityInfo = data.city;
-    console.log(data.country_code);
-    countryInfo = data.country_code;
+    locationInfo = data.city, ", (", data.country_code, ")";
   });
 }
 
