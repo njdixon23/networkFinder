@@ -1,4 +1,4 @@
-let networkFetch = document.getElementById("speed");
+let networkFetch = document.getElementById("ipButton");
 
 networkFetch.addEventListener("click", async () => {
   let [tab] = await chrome.tabs.query ({ active: true, currentWindow: true })
