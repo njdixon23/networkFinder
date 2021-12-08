@@ -4,6 +4,7 @@ body {
   text-shadow: #333333;
 }
 
+
 button {
   border-radius: 5%;
   background-color: #f0f6f7;
@@ -17,6 +18,8 @@ button:hover {
   color: #333333;
   background-color: #9FC2C8;
 }
+
+
 
 #speed {
   text-align: center;
@@ -74,4 +77,23 @@ button:hover {
   font-size: 25px;
   padding-top: 3%;
   padding-bottom: 3%;
+}
+
+.buttonHolder {
+  display: flex;
+  flex-direction: row;
+}
+
+#ipText {
+  font-size: 25px;
+  flex-direction: row;
+  font-size: 25px;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  padding-left: 3%;
+
+}
+
+#ipButton {
+  flex-direction: row;
 }

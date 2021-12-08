@@ -3,16 +3,27 @@
     "description": "Network Finder",
     "version": "0.1",
     "manifest_version": 3,
-
     "background": {
-        "service_worker": "ipdata.js"   
+        "service_worker": "ipdata.js"
     },
-    "permissions": ["storage", "activeTab", "scripting"],
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting"
+    ],
     "action": {
         "default_popup": "popup.html",
         "default_icon": {
+            "16": "/images/wifibar16.png",
+            "32": "/images/wifibar32.png",
+            "48": "/images/wifibar64.png",
+            "128": "/images/wifibar128.png"
+        },
+        "icons": {
+            "16": "/images/wifibar16.png",
+            "32": "/images/wifibar32.png",
+            "48": "/images/wifibar64.png",
+            "128": "/images/wifibar128.png"
         }
-    },
-    "icons": {
     }
 }
