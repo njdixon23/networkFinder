@@ -3,12 +3,20 @@ document.getElementById("ipButton").addEventListener("mousedown", addIP);
 document.getElementById("locationButton").addEventListener("mousedown", addLocation);
 
 var ipTestClicked = false;
+var locTestClicked = false;
+var secTestClicked = false;
+
 let apiKey = 'fb729aa07afc67f75787ec919286da17448183a2fbc17c8aed692f03';
 json(`https://api.ipdata.co?api-key=${apiKey}`).then(data => {
   console.log(data.ip);
   ipInfo = data.ip;
   ccInfo = data.country_code;
   locationInfo = data.city, ", (", ccInfo, ")";
+
+  if (is_tor == false){
+    secInfo = "Tor not connected"
+    console.log("secInfo printed...")
+  }
 
 });
 
@@ -35,7 +43,7 @@ function addIP() {
 
   // and give it some content
   const newContent = document.createTextNode(ipInfo);
-  console.log("Node created...")
+  console.log("IP node created...")
 
   // add the text node to the newly created div
   newDiv.appendChild(newContent);
@@ -43,7 +51,7 @@ function addIP() {
   // add the newly created element and its content into the DOM
   const currentDiv = document.getElementById("ipP");
   currentDiv.parentNode.insertBefore(newDiv, currentDiv.nextSibling);
-  console.log("Data printed")
+  console.log("IP data printed")
 
   ipTestClicked = true;
   document.getElementById("ipText").style.color = "red";
@@ -51,25 +59,51 @@ function addIP() {
 
 }
 
-function removeIP(){
-  document.getElementById("ipText").remove();
-}
-
 //draws location value
 function addLocation() {
-  printInfo();
+
+  if (locTestClicked) {
+    var locElem = document.getElementById("locText");
+    locElem.parentNode.removeChild(locElem);
+    locTestClicked = false;
+  }
+
   // create a new div element
   const locationDiv = document.createElement("locationDiv");
-
+  locationDiv.setAttribute("id", "locText");
   // and give it some content
   const locData = document.createTextNode(locationInfo);
-  
+  console.log("Location node created...)")
+
   // add the text node to the newly created div
   locationDiv.appendChild(locData);
 
   // add the newly created element and its content into the DOM
   const currentlocDiv = document.getElementById("cityP");
   currentlocDiv.parentNode.insertBefore(locData, currentlocDiv.nextSibling);
+  console.log("Location data printed")
+
+  locTestClicked = true;
+  document.getElementById("locText").style.color = "red";
+  setTimeout(() => { document.getElementById("locText").style.color = "black"; }, 200);
+}
+
+function checkSecurity(){
+    const secDiv = document.createElement("secDiv");
+
+   // and give it some content
+   const secData = document.createTextNode(secInfo);
+  
+   // add the text node to the newly created div
+   secDiv.appendChild(secData);
+
+   // add the newly created element and its content into the DOM
+   const currentsecDiv = document.getElementById("secP");
+   currentsecDiv.parentNode.insertBefore(secData, currentsecDiv.nextSibling);
+}
+
+function removeIP(){
+  document.getElementById("ipText").remove();
 }
 
 function json(url) {
