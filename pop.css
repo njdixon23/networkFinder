@@ -2,6 +2,8 @@ body {
   width: 500px;
   background-color: #D0E1E4;
   text-shadow: #333333;
+  outline: 4px double black;
+  padding: 20px;
 }
 
 
@@ -91,7 +93,7 @@ button:hover {
   padding-top: 3%;
   padding-bottom: 3%;
   padding-left: 3%;
-
+  transition: 1s;
 }
 
 #locText {
@@ -101,7 +103,7 @@ button:hover {
   padding-top: 3%;
   padding-bottom: 3%;
   padding-left: 3%;
-
+  transition: 1s;
 }
 
 #secText {
@@ -111,6 +113,7 @@ button:hover {
   padding-top: 3%;
   padding-bottom: 3%;
   padding-left: 3%;
+  transition: 1s;
 }
 
 #ipButton {
