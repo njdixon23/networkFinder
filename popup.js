@@ -23,6 +23,23 @@ json(`https://api.ipdata.co?api-key=${apiKey}`).then(data => {
 
 
 });
+function getInfo() {
+  json(`https://api.ipdata.co?api-key=${apiKey}`).then(data => {
+    console.log(data.ip);
+    ipInfo = data.ip;
+    ccInfo = data.country_code;
+    console.log(ipInfo);
+
+    locationInfo = data.city, ", (", ccInfo, ")";
+
+    if (is_proxy == false) {
+      secInfo = "Proxy not connected"
+      console.log("secInfo printed...")
+    }
+
+
+  });
+}
 
 //info button
 function changeDef() {
@@ -35,6 +52,7 @@ function changeDef() {
 
 //draws IP value
 function addIP() {
+  getInfo();
   if (ipTestClicked) {
     var elem = document.getElementById("ipText");
     elem.parentNode.removeChild(elem);
@@ -60,6 +78,7 @@ function addIP() {
 }
 //draws location value
 function addLocation() {
+  getInfo();
   if (locTestClicked) {
     var locElem = document.getElementById("locText");
     locElem.parentNode.removeChild(locElem);
@@ -84,6 +103,7 @@ function addLocation() {
 }
 
 function checkSecurity() {
+  getInfo();
   if (secTestClicked) {
     var secElem = document.getElementById("secText");
     secElem.parentNode.removeChild(secElem);
