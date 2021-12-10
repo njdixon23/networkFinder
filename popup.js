@@ -1,22 +1,26 @@
 
 document.getElementById("ipButton").addEventListener("mousedown", addIP);
 document.getElementById("locationButton").addEventListener("mousedown", addLocation);
+document.getElementById("secCheck").addEventListener("mousedown", checkSecurity);
 
 var ipTestClicked = false;
 var locTestClicked = false;
 var secTestClicked = false;
+var is_proxy = false;
 
 let apiKey = 'fb729aa07afc67f75787ec919286da17448183a2fbc17c8aed692f03';
 json(`https://api.ipdata.co?api-key=${apiKey}`).then(data => {
   console.log(data.ip);
   ipInfo = data.ip;
   ccInfo = data.country_code;
+  
   locationInfo = data.city, ", (", ccInfo, ")";
 
-  // if (is_tor == false) {
-  //   secInfo = "Tor not connected"
-  //   console.log("secInfo printed...")
-  // }
+   if (is_proxy == false) {
+    secInfo = "Proxy not connected"
+     console.log("secInfo printed...")
+   }
+   
 
 });
 
@@ -64,11 +68,14 @@ function addLocation() {
   // create a new div element
   const locationDiv = document.createElement("div");
   locationDiv.setAttribute("id", "locText");
+
   // and give it some content
   const locData = document.createTextNode(locationInfo);
   console.log("Location node created...)")
+
   // add the text node to the newly created div
   locationDiv.appendChild(locData);
+
   // add the newly created element and its content into the DOM
   const currentlocDiv = document.getElementById("cityP");
   currentlocDiv.parentNode.insertBefore(locationDiv, currentlocDiv.nextSibling);
@@ -85,13 +92,16 @@ function checkSecurity() {
 
   // and give it some content
   const secData = document.createTextNode(secInfo);
+  console.log("Security node created...");
 
   // add the text node to the newly created div
   secDiv.appendChild(secData);
-
+  console.log("secData append complete...")
+  
   // add the newly created element and its content into the DOM
   const currentsecDiv = document.getElementById("secP");
   currentsecDiv.parentNode.insertBefore(secData, currentsecDiv.nextSibling);
+  console.log("Security data printed");
 }
 
 function removeIP() {
