@@ -13,14 +13,14 @@ json(`https://api.ipdata.co?api-key=${apiKey}`).then(data => {
   console.log(data.ip);
   ipInfo = data.ip;
   ccInfo = data.country_code;
-  
+
   locationInfo = data.city, ", (", ccInfo, ")";
 
-   if (is_proxy == false) {
+  if (is_proxy == false) {
     secInfo = "Proxy not connected"
-     console.log("secInfo printed...")
-   }
-   
+    console.log("secInfo printed...")
+  }
+
 
 });
 
@@ -72,36 +72,38 @@ function addLocation() {
   // and give it some content
   const locData = document.createTextNode(locationInfo);
   console.log("Location node created...)")
-
   // add the text node to the newly created div
   locationDiv.appendChild(locData);
-
   // add the newly created element and its content into the DOM
   const currentlocDiv = document.getElementById("cityP");
   currentlocDiv.parentNode.insertBefore(locationDiv, currentlocDiv.nextSibling);
   console.log("Location data printed")
-
-
   document.getElementById("locText").style.color = "red";
   locTestClicked = true;
   setTimeout(() => { document.getElementById("locText").style.color = "black"; }, 200);
 }
 
 function checkSecurity() {
-  const secDiv = document.createElement("secDiv");
-
+  if (secTestClicked) {
+    var secElem = document.getElementById("secText");
+    secElem.parentNode.removeChild(secElem);
+    secTestClicked = false;
+  }
+  const secDiv = document.createElement("div");
+  secDiv.setAttribute("id", "secText");
   // and give it some content
   const secData = document.createTextNode(secInfo);
   console.log("Security node created...");
-
   // add the text node to the newly created div
   secDiv.appendChild(secData);
   console.log("secData append complete...")
-  
   // add the newly created element and its content into the DOM
   const currentsecDiv = document.getElementById("secP");
-  currentsecDiv.parentNode.insertBefore(secData, currentsecDiv.nextSibling);
+  currentsecDiv.parentNode.insertBefore(secDiv, currentsecDiv.nextSibling);
+  document.getElementById("secText").style.color = "red";
+  secTestClicked = true;
   console.log("Security data printed");
+  setTimeout(() => { document.getElementById("secText").style.color = "black"; }, 200);
 }
 
 function removeIP() {

@@ -104,10 +104,23 @@ button:hover {
 
 }
 
+#secText {
+  font-size: 25px;
+  flex-direction: row;
+  font-size: 25px;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  padding-left: 3%;
+}
+
 #ipButton {
   flex-direction: row;
 }
 
 #locationButton {
+  flex-direction: row;
+}
+
+#secCheck {
   flex-direction: row;
 }
